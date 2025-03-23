@@ -25,16 +25,19 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to production
+      - name: Deploy to production (remove existing files)
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            rm -rf /var/www/icero/*
-      
+            rm -rf /var/www/html/*
+
       - name: Upload built files
         run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
-            ./dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/icero/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
+          chmod 600 private_key.pem
+          rsync -avz --delete -e "ssh -i private_key.pem -o StrictHostKeyChecking=no" \
+            ./dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/html/
+          rm private_key.pem
