@@ -14,13 +14,13 @@ export function HomePage() {
       <FeaturesSection />
 
       {/* Carrusel de patrocinadores */}
-      <SponsorsCarousel />
+      {/* <SponsorsCarousel /> */}
 
       {/* Sección de testimonios */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       {/* Sección de newsletter / suscripción */}
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
 
       {/* Botón de chat */}
       <ChatButton />
@@ -194,6 +194,34 @@ function HeroSection() {
    COMPONENTE: FeaturesSection
    ============================================================ */
 function FeaturesSection() {
+  const extraFeatures = [
+    {
+      name: "Precios Competitivos",
+      description:
+        "Ofrecemos los mejores precios del mercado. Nos enfocamos en brindarte la funcionalidad con el coste mínimo. Queremos apoyar tu negocio.",
+    },
+    {
+      name: "Atención proactiva",
+      description:
+        "No nos limitamos a crear. Observamos tu negocio, su funcionamiento y sus necesidades para ofrecerte las soluciones más adecuadas y eficientes.",
+    },
+    {
+      name: "Transparencia",
+      description:
+        "En nuestras sesiones de consultoría, te explicamos cada paso del proceso. Queremos que entiendas cómo trabajamos y cómo te beneficiará.",
+    },
+    {
+      name: "Tranquilidad",
+      description:
+        "Déjanos encargarnos de los apartados técnicos. Nosotros nos ocupamos de que todo funcione por nuestra cuenta, no necesitas preocuparte.",
+    },
+    {
+      name: "Flexibilidad",
+      description:
+        "Nos adaptamos a tus necesidades y requerimientos específicos, ofreciendo soluciones personalizadas que se ajustan a tu negocio.",
+    },
+  ];
+
   return (
     <section id="features" className="bg-gray-100 py-16 px-4 md:px-8">
       <div className="container mx-auto">
@@ -263,17 +291,15 @@ function FeaturesSection() {
             </p>
           </div>
         </div>
-        {/* Más características con contenido repetitivo para extender la sección */}
+        {/* Extra features using the extraFeatures array */}
         <div className="mt-12">
-          {Array.from({ length: 5 }).map((_, index) => (
+          {extraFeatures.map((feature, index) => (
             <div key={index} className="bg-white p-4 rounded shadow-md mb-4">
               <h4 className="text-xl font-bold text-gray-800">
-                Característica Extra {index + 1}
+                {feature.name}
               </h4>
               <p className="text-gray-600 mt-2">
-                Detalles adicionales sobre la característica extra número{" "}
-                {index + 1}. Esta sección se repite para extender el contenido y
-                ofrecer una descripción completa y extensa de cada punto.
+                {feature.description}
               </p>
             </div>
           ))}
@@ -523,12 +549,11 @@ function ChatButton() {
             strokeLinejoin="round"
           />
         </svg>
-        <span>💬 ¿Ayuda? ¡Hablemos!</span>
+        <span>¿Ayuda? ¡Hablemos!</span>
       </button>
       {/* Líneas extra decorativas */}
       <div className="mt-2 text-xs text-gray-700 text-right pr-2">
-        <p>Línea adicional 1</p>
-        <p>Línea adicional 2</p>
+        <p>¡Contacta con nosotros!</p>
       </div>
     </div>
   );

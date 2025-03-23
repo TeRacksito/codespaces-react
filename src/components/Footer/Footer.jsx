@@ -15,7 +15,7 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Enlaces</h4>
             <ul className="flex flex-row space-x-4">
               <li>
                 <Link
@@ -30,13 +30,13 @@ const Footer = () => {
                   to="/video"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Videos
+                  Video promocional
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4">Contacto</h4>
             <p className="text-gray-300">Email: angelnks100@gmail.com</p>
           </div>
         </div>

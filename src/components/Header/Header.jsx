@@ -6,9 +6,9 @@ const Header = () => {
     <header className="bg-white shadow-md w-full py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <img 
-            src="/icon_black_icero.png" 
-            alt="iCero Icon" 
+          <img
+            src="/icon_black_icero.png"
+            alt="iCero Icon"
             className="h-8 mr-2"
             style={{ transform: "scale(2)" }}
           />
@@ -29,7 +29,7 @@ const Header = () => {
                 to="/video"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
-                Videos
+                Video
               </Link>
             </li>
           </ul>
