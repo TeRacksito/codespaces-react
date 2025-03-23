@@ -32,12 +32,12 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            rm -rf /var/www/html/*
+            rm -rf /var/www/icero/*
 
       - name: Upload built files
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
           chmod 600 private_key.pem
           rsync -avz --delete -e "ssh -i private_key.pem -o StrictHostKeyChecking=no" \
-            ./dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/html/
+            ./dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/icero/
           rm private_key.pem
